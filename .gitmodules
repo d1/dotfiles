@@ -1,9 +1,9 @@
 [submodule "emacs.d/vendor/magit"]
 	path = emacs.d/vendor/magit
-	url = ../code/vendor/magit
+	url = https://github.com/magit/magit.git
 [submodule "emacs.d/vendor/rinari"]
 	path = emacs.d/vendor/rinari
-	url = ../code/vendor/rinari
+	url = https://github.com/eschulte/rinari.git
 [submodule "emacs.d/vendor/yasnippet"]
 	path = emacs.d/vendor/yasnippet
-	url = ../code/vendor/yasnippet
+	url = https://github.com/capitaomorte/yasnippet.git
