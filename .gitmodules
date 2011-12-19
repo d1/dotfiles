@@ -7,3 +7,6 @@
 [submodule "emacs.d/vendor/yasnippet"]
 	path = emacs.d/vendor/yasnippet
 	url = https://github.com/capitaomorte/yasnippet.git
+[submodule "emacs.d/vendor/ecb"]
+	path = emacs.d/vendor/ecb
+	url = https://github.com/emacsmirror/ecb.git
