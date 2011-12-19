@@ -1,0 +1,14 @@
+
+* Todo:
+** [] Write an installer
+** [] Configs
+*** [] Emacs
+*** [] Bash
+*** [] Screen
+*** [] git & hg
+*** [] rvm
+*** [] curl
+*** [] proxy configs?
+
+** [] Break environment-specific config (darwin vs cygwin) to new emacs files
+*** [] Make sure emacs config is still sane in linux.

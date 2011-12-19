@@ -1,0 +1,15 @@
+Attempting to provide canonical dotfiles, configuration, themes, etc across
+various environments. Supported environments:
+darwin / ns / mac
+cygwin / win32
+linux
+
+
+* To install:
+** Clone repo
+** Create symlink in $HOME pointing to repo
+$ ln -s path/to/repo $HOME/.dotfiles
+** Create symlinks for configs relative to the new symlink
+$ ln -s $HOME/.bashrc .bashrc
+
+

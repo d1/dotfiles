@@ -1,0 +1,7 @@
+### Start of OSX-specific config ###
+echo "Setting OSX Bash Config"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
+
+#alias emacs-nw="/usr/local/Cellar/emacs/23.3a/Emacs.app/Contents/MacOS/Emacs -nw"
+alias emacs="/usr/local/Cellar/emacs/23.3a/Emacs.app/Contents/MacOS/bin/emacsclient -n"
+### End of OSX-specific config ###
