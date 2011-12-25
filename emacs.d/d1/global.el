@@ -39,9 +39,9 @@
 
 
 ;; make completion buffers disappear after 20 seconds.
-(add-hook 'completion-setup-hook
-  (lambda () (run-at-time 20 nil
-    (lambda () (delete-windows-on "*Completions*")))))
+;; (add-hook 'completion-setup-hook
+;;   (lambda () (run-at-time 20 nil
+;;     (lambda () (delete-windows-on "*Completions*")))))
 
 ;; put the name of current buffer in title bar
 (setq frame-title-format
