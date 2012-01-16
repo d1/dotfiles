@@ -1,4 +1,8 @@
 
+# If not running interactively, don't do anything
+[[ "$-" != *i* ]] && return
+
+
 function gemdir {
     if [[ -z "$1" ]] ; then
 	echo "gemdir expects a parameter, which should be a valid RVM Ruby selector"
@@ -15,8 +19,6 @@ function gemdir {
 # The home directory (HOME) is replaced with a ~
 # The last pwdmaxlen characters of the PWD are displayed
 # Leading partial directory names are striped off
-# /home/me/stuff          -> ~/stuff               if USER=me
-# /usr/share/big_dir_name -> ../share/big_dir_name if pwdmaxlen=20
 ##################################################
 bash_prompt_command() {
 	    # How many characters of the $PWD should be kept
@@ -37,6 +39,19 @@ PROMPT_COMMAND=bash_prompt_command
 PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]${NEW_PWD}\[\e[0m\]\n\$ '
 #PS1="${W}[\u@\h \${NEW_PWD}]${W}\\$ ${NONE}"
 
+# Ignore ^D
+set -o ignoreeof
+# Use case-insensitive filename globbing
+shopt -s nocaseglob
+# Automatically fix sloppy spelling in paths
+shopt -s cdspell
+
+
+# Enable bash completions
+# Any completions added to ~/.bash_completion are sourced last.
+# [[ -f /etc/bash_completion ]] && source /etc/bash_completion
+
+
 # @ToDo: Add git bash completion
 # Git tab completion
 #source ~/git-completion.bash
@@ -48,10 +63,14 @@ PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]${NEW_PWD}\[\e[0m\]\n\$ '
 EDITOR="emacs"
 
 # Global Aliases
-alias ls="ls -aF"
-alias ducks='du -cks * | sort -rn | head -11'
+alias ls='ls -aF'
+alias df='df -h'
+alias du='du -h'
 
-alias be="bundle exec"
+alias ducks='du -cks * | sort -rn | head -11'
+alias be='bundle exec'
+alias ec='emacsclient -n'
+
 
 ## Load External Configurations
 
@@ -65,3 +84,21 @@ CYGWIN_BASH_CONFIG="$HOME/.config-cygwin/bashrc-cygwin"
 
  # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
+## Setup Paths
+
+# Set PATH so it includes user's private bin if it exists
+if [ -d "${HOME}/bin" ]; then
+  PATH="${HOME}/bin:${PATH}"
+fi
+
+# Set MANPATH so it includes users' private man if it exists
+if [ -d "${HOME}/man" ]; then
+  MANPATH="${HOME}/man:${MANPATH}"
+fi
+
+# Set INFOPATH so it includes users' private info if it exists
+if [ -d "${HOME}/info" ]; then
+  INFOPATH="${HOME}/info:${INFOPATH}"
+fi

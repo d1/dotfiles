@@ -1,11 +1,9 @@
-BoldAsFont=no
+BoldAsFont=yes
+BoldAsColor=no
 Transparency=off
-OpaqueWhenFocused=no
+Font=Inconsolata
+FontHeight=10
 CursorType=block
 CursorBlinks=no
-Font=Inconsolata
-FontSmoothing=full
-BoldAsColour=yes
-PgUpDnScroll=yes
-FontHeight=11
+CopyAsRTF=no
 Scrollbar=none
