@@ -4,5 +4,8 @@ MINTTY_COLOR_THEME="$HOME/.mintty-color-theme-solarized/sol.dark"
 #MINTTY_COLOR_THEME="$HOME/.mintty-color-theme-solarized/sol.light"
 [[ -s $MINTTY_COLOR_THEME ]] && source $MINTTY_COLOR_THEME
 
+CNTLM_PROXY="http://localhost:3128"
+export http_proxy="$CNTLM_PROXY"
+
 alias emacs='/bin/run.exe -p /usr/X11R6/bin /usr/bin/emacs -display 127.0.0.1:0.0'
 ### End of Cygwin-specific config ###
