@@ -13,6 +13,14 @@ bind c screen 1
 bind ^c screen 1
 bind 0 select 1
 
+# Setup multiuser; used for pair programming
+multiuser on
+# NOTES
+# Observer can join session with 'screen -x <driver_username>/[<session_name>]'
+# Driver gives access with the following commands:
+# :acladd <username> # Full read-write access
+# :acladd <username> -w "#" # Read-only access
+
 # Create initial windows
 screen 1
 # screen 2
