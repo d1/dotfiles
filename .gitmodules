@@ -10,3 +10,6 @@
 [submodule "emacs.d/vendor/ecb"]
 	path = emacs.d/vendor/ecb
 	url = https://github.com/emacsmirror/ecb.git
+[submodule "emacs.d/vendor/rvm.el"]
+	path = emacs.d/vendor/rvm.el
+	url = https://github.com/senny/rvm.el.git

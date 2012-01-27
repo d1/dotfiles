@@ -16,6 +16,9 @@
 (setq yas/snippet-dirs '("~/.emacs.d/vendor/yasnippet/snippets" "~/.emacs.d/d1/snippets"))
 (yas/global-mode 1)
 
+(vendor 'rvm)
+(require 'rvm)
+
 ;; load ecb
 ;;(add-to-list 'load-path "~/.dotfiles/emacs.d/vendor/emacsmirror-ecb-54527e9")
 ;;(require 'ecb)
