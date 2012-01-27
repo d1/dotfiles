@@ -1,10 +1,10 @@
 
 ;; hide all the chrome.
 (setq inhibit-startup-message t)
-(menu-bar-mode nil)
-(tool-bar-mode nil)
-(scroll-bar-mode nil)
-(tooltip-mode nil)
+(menu-bar-mode 1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(tooltip-mode -1)
 ;;(setq user-mail-address "dave.strock@gmail.com")
 (setq user-full-name "Dave Strock")
 (mouse-wheel-mode t)
