@@ -14,6 +14,8 @@
 (show-paren-mode t)
 (prefer-coding-system 'utf-8)
 
+;; Shift + <arrow keys> to move around windows
+(windmove-default-keybindings)
 
 ;; tags & tabs
 (setq tags-file-name "TAGS")
