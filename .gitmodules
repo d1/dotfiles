@@ -13,3 +13,9 @@
 [submodule "emacs.d/vendor/rvm.el"]
 	path = emacs.d/vendor/rvm.el
 	url = https://github.com/senny/rvm.el.git
+[submodule "emacs.d/vendor/emacs-pry"]
+	path = emacs.d/vendor/emacs-pry
+	url = https://github.com/jacott/emacs-pry.git
+[submodule "emacs.d/vendor/pry"]
+	path = emacs.d/vendor/pry
+	url = https://github.com/jacott/emacs-pry.git
