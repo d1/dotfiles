@@ -1,0 +1,7 @@
+[user]
+	name = Dave Strock
+	email = dave.strock@gmail.com
+[color]
+	ui = always
+[core]
+	editor = /usr/bin/emacs -nw -q
