@@ -19,3 +19,6 @@
 [submodule "emacs.d/vendor/pry"]
 	path = emacs.d/vendor/pry
 	url = https://github.com/jacott/emacs-pry.git
+[submodule "emacs.d/vendor/rspec-mode"]
+	path = emacs.d/vendor/rspec-mode
+	url = https://github.com/pezra/rspec-mode.git
