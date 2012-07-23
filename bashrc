@@ -2,7 +2,6 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-
 function gemdir {
     if [[ -z "$1" ]] ; then
 	echo "gemdir expects a parameter, which should be a valid RVM Ruby selector"
@@ -12,6 +11,8 @@ function gemdir {
 	pwd
     fi
 }
+
+source ~/.dotfiles/git-prompt.sh
 
 ##################################################
 # Fancy PWD display function
@@ -36,7 +37,7 @@ bash_prompt_command() {
 }
 PROMPT_COMMAND=bash_prompt_command
 
-PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]${NEW_PWD}\[\e[0m\]\n\$ '
+PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]${NEW_PWD}$(__git_ps1 " (%s)")\[\e[0m\]\n\$ '
 #PS1="${W}[\u@\h \${NEW_PWD}]${W}\\$ ${NONE}"
 
 # Ignore ^D
@@ -45,20 +46,6 @@ set -o ignoreeof
 shopt -s nocaseglob
 # Automatically fix sloppy spelling in paths
 shopt -s cdspell
-
-
-# Enable bash completions
-# Any completions added to ~/.bash_completion are sourced last.
-# [[ -f /etc/bash_completion ]] && source /etc/bash_completion
-
-
-# @ToDo: Add git bash completion
-# Git tab completion
-#source ~/git-completion.bash
-# Show branch in status line
-#PS1='[\W$(__git_ps1 " (%s)")]\$ '
-#export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
-
 
 EDITOR="emacs"
 
@@ -71,7 +58,6 @@ alias ducks='du -cks * | sort -rn | head -11'
 alias be='bundle exec'
 alias ec='emacsclient -n'
 
-
 ## Load External Configurations
 
 # OSX-specific configuration
@@ -82,25 +68,23 @@ OSX_BASH_CONFIG="$HOME/.config-osx/bashrc-osx"
 CYGWIN_BASH_CONFIG="$HOME/.config-cygwin/bashrc-cygwin"
 [[ -s "$CYGWIN_BASH_CONFIG" ]] && source "$CYGWIN_BASH_CONFIG"
 
- # Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 
 ## Setup Paths
 
-# Set PATH so it includes user's private bin if it exists
+# Set PATH so it includes private bin if it exists
 if [ -d "${HOME}/bin" ]; then
   PATH="${HOME}/bin:${PATH}"
 fi
 
-# Set MANPATH so it includes users' private man if it exists
+# Set MANPATH so it includes private man if it exists
 if [ -d "${HOME}/man" ]; then
   MANPATH="${HOME}/man:${MANPATH}"
 fi
 
-# Set INFOPATH so it includes users' private info if it exists
+# Set INFOPATH so it includes private info if it exists
 if [ -d "${HOME}/info" ]; then
   INFOPATH="${HOME}/info:${INFOPATH}"
 fi
+
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
