@@ -4,7 +4,7 @@ echo "Setting OSX Bash Config"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 
 # Overwrites the default editor variable from bashrc
-export EDITOR="emacsclient -n"
+export EDITOR="emacs -nw"
 
 # Postges
 alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
