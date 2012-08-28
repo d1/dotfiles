@@ -1,5 +1,48 @@
 ;;; Personal functions
 
+;;;; Window-position agnostic resizing
+(defun window-horizontal-location()
+  "Determine if selected window is on 'left' or 'right'"
+  (let ((left-x (nth 0 (window-edges))))
+    (if (eq 0 left-x) "left" "right")))
+
+(defun window-vertical-location()
+  "Determine if selected window is on 'top' or 'bottom'"
+  (let ((top-y (nth 1 (window-edges))))
+    (if (eq 0 top-y) "top" "bottom")))
+
+(defvar border-move-amount 1 "Amount to move window borders by")
+
+(defun move-window-border-left()
+  "Enlarges or shirnks the current window so the border moves left"
+  (interactive)
+  (if (equal "left" (window-horizontal-location))
+      (shrink-window-horizontally border-move-amount)
+    (enlarge-window-horizontally border-move-amount)))
+
+(defun move-window-border-right()
+  "Enlarges or shirnks the current window so the border moves right"
+  (interactive)
+  (if (equal "left" (window-horizontal-location))
+      (enlarge-window-horizontally border-move-amount)
+    (shrink-window-horizontally border-move-amount)))
+
+(defun move-window-border-up()
+  "Enlarges or shirnks the current window so the border moves up"
+  (interactive)
+  (if (equal "top" (window-vertical-location))
+      (shrink-window border-move-amount)
+    (enlarge-window border-move-amount)))
+
+(defun move-window-border-down()
+  "Enlarges or shirnks the current window so the border moves down"
+  (interactive)
+  (if (equal "top" (window-vertical-location))
+      (enlarge-window border-move-amount)
+    (shrink-window border-move-amount)))
+;;;; End resizing
+
+
 ;; For loading libraries from the vendor directory
 ;; Forked from:
 ;; https://github.com/defunkt/emacs/blob/master/defunkt/defuns.el

@@ -43,3 +43,8 @@
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
+;; Window-agnostic resizing
+(global-set-key (kbd "M-<up>") 'move-window-border-up)
+(global-set-key (kbd "M-<down>") 'move-window-border-down)
+(global-set-key (kbd "M-<left>") 'move-window-border-left)
+(global-set-key (kbd "M-<right>") 'move-window-border-right)
