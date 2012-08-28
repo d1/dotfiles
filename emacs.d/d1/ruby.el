@@ -1,3 +1,4 @@
+;; ruby mode
 
 (vendor 'rinari)
 (require 'rinari)
