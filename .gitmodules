@@ -10,12 +10,6 @@
 [submodule "emacs.d/vendor/ecb"]
 	path = emacs.d/vendor/ecb
 	url = https://github.com/emacsmirror/ecb.git
-[submodule "emacs.d/vendor/rvm.el"]
-	path = emacs.d/vendor/rvm.el
-	url = https://github.com/senny/rvm.el.git
-[submodule "emacs.d/vendor/emacs-pry"]
-	path = emacs.d/vendor/emacs-pry
-	url = https://github.com/jacott/emacs-pry.git
 [submodule "emacs.d/vendor/pry"]
 	path = emacs.d/vendor/pry
 	url = https://github.com/jacott/emacs-pry.git
@@ -25,3 +19,6 @@
 [submodule "emacs.d/vendor/feature-mode"]
 	path = emacs.d/vendor/feature-mode
 	url = https://github.com/michaelklishin/cucumber.el.git
+[submodule "emacs.d/vendor/rvm.el"]
+	path = emacs.d/vendor/rvm.el
+	url = https://github.com/senny/rvm.el.git
