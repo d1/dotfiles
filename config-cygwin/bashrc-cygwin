@@ -1,12 +1,14 @@
 ### Start of Cygwin-specific config ###
 # Setup the mintty color theme... should probably only do this in mintty, but seems to work fine in XTerm also
-MINTTY_COLOR_THEME="$HOME/.mintty-color-theme-solarized/sol.dark"
-#MINTTY_COLOR_THEME="$HOME/.mintty-color-theme-solarized/sol.light"
+MINTTY_COLOR_THEME="$HOME/.dotfiles/mintty-color-theme-solarized/sol.dark"
 [[ -s $MINTTY_COLOR_THEME ]] && source $MINTTY_COLOR_THEME
 
 CNTLM_PROXY="http://localhost:3128"
 export http_proxy="$CNTLM_PROXY"
 export ALL_PROXY="localhost:3128" # For curl https
 
-alias emacs='/bin/run.exe -p /usr/X11R6/bin /usr/bin/emacs -display 127.0.0.1:0.0'
+
+export DISPLAY=127.0.0.1:0.0
+alias emacs='/bin/run.exe -p /usr/X11R6/bin /usr/bin/emacs-X11'
+
 ### End of Cygwin-specific config ###

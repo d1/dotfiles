@@ -61,11 +61,11 @@ alias ec='emacsclient -n'
 ## Load External Configurations
 
 # OSX-specific configuration
-OSX_BASH_CONFIG="$HOME/.config-osx/bashrc-osx"
+OSX_BASH_CONFIG="${HOME}/.config-osx/bashrc-osx"
 [[ -s "$OSX_BASH_CONFIG" ]] && source "$OSX_BASH_CONFIG"
 
 # Cygwin-specific configuration
-CYGWIN_BASH_CONFIG="$HOME/.config-cygwin/bashrc-cygwin"
+CYGWIN_BASH_CONFIG="${HOME}/.config-cygwin/bashrc-cygwin"
 [[ -s "$CYGWIN_BASH_CONFIG" ]] && source "$CYGWIN_BASH_CONFIG"
 
 
