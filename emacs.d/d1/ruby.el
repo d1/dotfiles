@@ -1,5 +1,24 @@
 ;; ruby mode
 
+(eval-after-load "ruby-mode"
+  '(progn
+     ;; Stop stealing my binding!
+     (define-key ruby-mode-map (kbd "C-c C-c") nil)))
+
+;; Setup all the various file types that should use ruby-mode
+(setq ruby-file-types
+      '("\.rake$"
+       "\.gemspec$"
+       "\.ru$"
+       "Rakefile$"
+       "Gemfile$"
+       "Vagrantfile$"))
+
+(dolist (ruby-file ruby-file-types)
+  (add-to-list 'auto-mode-alist (cons ruby-file 'ruby-mode)))
+
+
+
 (vendor 'rinari)
 (require 'rinari)
 
