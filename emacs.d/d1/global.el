@@ -2,23 +2,37 @@
 
 ;; Hide all the chrome
 (setq inhibit-startup-message t)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(tooltip-mode -1)
+(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(when (fboundp 'tooltip-mode) (tooltip-mode -1))
 
 ;; Keep the menu bar in OSX 'cause it looks nice
-(if (not (equal system-type 'darwin))
+(if (and (fboundp 'menu-bar-mode) (not (eq system-type 'darwin)))
     (menu-bar-mode -1)
   (menu-bar-mode 1))
 
 (setq user-full-name "Dave Strock")
 ;;(setq user-mail-address "dave.strock@gmail.com")
+(setq-default cursor-type 'bar)
 (mouse-wheel-mode t)
 (line-number-mode 1)
 (global-linum-mode 1)
 (column-number-mode 1)
 (global-font-lock-mode t)
 (show-paren-mode t)
+(global-hl-line-mode t)
+
+;; Automatically reload files if they change on disk and not in Emacs
+(global-auto-revert-mode t)
+
+;; Don't make backups
+(setq make-backup-files nil)
+
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
 ;; Accept just 'y' or 'n', instead of 'yes' or 'no'
@@ -27,34 +41,32 @@
 ;; Set C-k to kill the newline as well
 (setq kill-whole-line t)
 
-;; Shift + <arrow keys> to move around windows
-(windmove-default-keybindings)
-
-;; Tags & tabs
+;; Tags
 (setq tags-file-name "TAGS")
-(setq-default tab-width 2)
-(setq-default tab-stop-list (quote (2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64)))
-(setq-default indent-tabs-mode nil)
+
+;; Whitespace...
+(setq tab-width 2
+      indent-tabs-mode nil)
 
 ;; No need for trailing whitespace
 (add-hook 'before-save-hook (lambda () (delete-trailing-whitespace)))
 ;; End files with newline character
-(setq require-final-newline 't)
+(setq require-final-newline t)
 
 ;; Use a nice font by default
 (set-face-attribute 'default (selected-frame) :family "Inconsolata")
 
 ;; Better spellcheck
-(setq-default ispell-program-name "aspell")
-(setq ispell-list-command "list")
-(setq ispell-extra-args '("--sug-mode=ultra"))
+(setq ispell-program-name "aspell"
+      ispell-list-command "list"
+      ispell-extra-args '("--sug-mode=ultra"))
 
 ;; Make completion buffers disappear after 20 seconds.
 ;; (add-hook 'completion-setup-hook
 ;;   (lambda () (run-at-time 20 nil
 ;;     (lambda () (delete-windows-on "*Completions*")))))
 
-;; For dup filenames, add parent dir to buffer name, instead of just appending integers
+;; Nice buffer names for duplicate named buffers
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
@@ -64,25 +76,20 @@
                    (abbreviate-file-name (buffer-file-name))
                  "%b")) " %* emacs"))
 
-;; Don't make backups
-(setq make-backup-files nil)
-
 ;;;;
 ;; Need to extract this to an environment-specific or host-specific file
-(if (equal system-type 'cygwin)
+(if (eq system-type 'cygwin)
     (set-face-attribute 'default (selected-frame) :height 120)
   (set-face-attribute 'default (selected-frame) :height 160))
 
-(if (display-graphic-p)
+(when (display-graphic-p)
     ;; Set transparency: 'alpha '(<active> [<inactive>])
     (set-frame-parameter nil 'alpha '(85 70)))
 
-(if (equal system-type 'darwin)
-    (progn
-      (setq mac-allow-anti-aliasing t)
-      (setq mac-command-modifier 'meta)
-      (set-face-attribute 'default (selected-frame) :height 160)))
-;;;
+(when (eq system-type 'darwin)
+  (setq mac-allow-anti-aliasing t
+        mac-command-modifier 'meta)
+  (set-face-attribute 'default (selected-frame) :height 160))
 
 ;; default window sizes
 ;;(set-frame-height (selected-frame) 37)

@@ -7,6 +7,5 @@
 (load "d1/defuns")
 (load "d1/bindings")
 (load "d1/theme")
-;;(load "d1/fonts")
 (load "d1/modes")
 

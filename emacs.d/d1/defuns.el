@@ -40,7 +40,6 @@
   (if (equal "top" (window-vertical-location))
       (enlarge-window border-move-amount)
     (shrink-window border-move-amount)))
-;;;; End resizing
 
 
 ;; For loading libraries from the vendor directory
@@ -59,7 +58,11 @@
       (load d1))))
 
 
-(defun reload-config()
+(defun edit-config ()
+  (interactive)
+  (find-file "~/.emacs/d1.el"))
+
+(defun reload-config ()
   (interactive)
   (load-file "~/.emacs"))
 
@@ -72,41 +75,20 @@
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))))
 
 
-;; Make the whole buffer pretty and consistent
-(defun iwb()
-  "Indent Whole Buffer"
-  (interactive)
-  (delete-trailing-whitespace)
-  (indent-region (point-min) (point-max) nil)
-  (untabify (point-min) (point-max)))
-
-
-;; From emacs-starter-kit (esk)
-(defun esk-untabify-buffer ()
+(defun untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)))
 
-(defun esk-indent-buffer ()
+(defun indent-buffer ()
   (interactive)
   (indent-region (point-min) (point-max)))
 
-(defun esk-cleanup-buffer ()
+(defun cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer."
   (interactive)
-  (esk-indent-buffer)
-  (esk-untabify-buffer)
+  (indent-buffer)
+  (untabify-buffer)
   (delete-trailing-whitespace))
-
-(defun esk-insert-date ()
-  "Insert a time-stamp according to locale's date and time format."
-  (interactive)
-  (insert (format-time-string "%c" (current-time))))
-
-(defun esk-pairing-bot ()
-  "If you can't pair program with a human, use this instead."
-  (interactive)
-  (message (if (y-or-n-p "Do you have a test for that? ") "Good." "Bad!")))
-
 
 
 ;; Enable transparency

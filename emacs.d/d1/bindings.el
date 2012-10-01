@@ -16,8 +16,8 @@
 ;; Completion that uses many different methods to find options.
 (global-set-key (kbd "M-/") 'hippie-expand)
 
-;; Perform general cleanup.
-(global-set-key (kbd "C-c n") 'esk-cleanup-buffer)
+;; Perform general buffer cleanup.
+(global-set-key (kbd "C-c n") 'cleanup-buffer)
 
 ;; Jump to a definition in the current file
 (global-set-key (kbd "C-x C-i") 'imenu)
@@ -27,7 +27,7 @@
 (global-set-key (kbd "C-c f") 'find-file-in-project)
 
 (global-set-key (kbd "C-c y") 'bury-buffer)
-(global-set-key (kbd "C-c r") 'revert-buffer)
+(global-set-key (kbd "C-c C-r") 'revert-buffer)
 
 ;; Movement
 (global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window -1)))

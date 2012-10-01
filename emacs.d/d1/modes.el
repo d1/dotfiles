@@ -18,6 +18,3 @@
 (require 'feature-mode)
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 
-;; load ecb
-;;(add-to-list 'load-path "~/.dotfiles/emacs.d/vendor/emacsmirror-ecb-54527e9")
-;;(require 'ecb)
