@@ -81,18 +81,9 @@
     (set-face-attribute 'default (selected-frame) :height 120)
   (set-face-attribute 'default (selected-frame) :height 160))
 
-(when (display-graphic-p)
-    ;; Set transparency: 'alpha '(<active> [<inactive>])
-    (set-frame-parameter nil 'alpha '(85 70)))
-
 (when (eq system-type 'darwin)
   (setq mac-allow-anti-aliasing t
         mac-command-modifier 'meta)
   (set-face-attribute 'default (selected-frame) :height 160))
-
-;; default window sizes
-;;(set-frame-height (selected-frame) 37)
-;;(set-frame-width (selected-frame) 100)
-;;(set-frame-position (selected-frame) 50 40)
 
 (server-start)
