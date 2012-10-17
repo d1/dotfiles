@@ -7,9 +7,6 @@
 [submodule "emacs.d/vendor/yasnippet"]
 	path = emacs.d/vendor/yasnippet
 	url = https://github.com/capitaomorte/yasnippet.git
-[submodule "emacs.d/vendor/ecb"]
-	path = emacs.d/vendor/ecb
-	url = https://github.com/emacsmirror/ecb.git
 [submodule "emacs.d/vendor/pry"]
 	path = emacs.d/vendor/pry
 	url = https://github.com/jacott/emacs-pry.git
