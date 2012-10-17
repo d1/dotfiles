@@ -12,6 +12,7 @@ function gemdir {
     fi
 }
 
+GIT_PS1_SHOWDIRTYSTATE='true'
 source ~/.dotfiles/git-prompt.sh
 
 ##################################################
@@ -38,7 +39,6 @@ bash_prompt_command() {
 PROMPT_COMMAND=bash_prompt_command
 
 PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]${NEW_PWD}$(__git_ps1 " (%s)")\[\e[0m\]\n\$ '
-#PS1="${W}[\u@\h \${NEW_PWD}]${W}\\$ ${NONE}"
 
 # Ignore ^D
 set -o ignoreeof
