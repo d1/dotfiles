@@ -1,9 +1,11 @@
 BoldAsFont=yes
-BoldAsColor=no
 Transparency=off
 Font=Inconsolata
 FontHeight=10
-CursorType=block
-CursorBlinks=no
+CursorType=line
+CursorBlinks=yes
 CopyAsRTF=no
 Scrollbar=none
+Columns=90
+Rows=58
+ScrollbackLines=100000
