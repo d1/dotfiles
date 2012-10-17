@@ -60,7 +60,7 @@
 
 (defun edit-config ()
   (interactive)
-  (find-file "~/.emacs/d1.el"))
+  (find-file "~/.emacs.d/d1.el"))
 
 (defun reload-config ()
   (interactive)

@@ -1,8 +1,7 @@
-(vendor 'color-theme)
-;;(eval-after-load "color-theme"
-;;  '(progn
-;;     (color-theme-initialize)))
-(setq color-theme-is-global t)
-(vendor 'color-theme-solarized)
-(color-theme-solarized-dark)
+(when window-system
+    (progn
+      (vendor 'color-theme)
+      (setq color-theme-is-global t)
+      (vendor 'color-theme-solarized)
+      (color-theme-solarized-dark)))
 

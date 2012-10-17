@@ -24,8 +24,8 @@
 
 (vendor 'rvm)
 (require 'rvm)
-(add-hook 'ruby-mode-hook
-          (lambda () (rvm-activate-corresponding-ruby)))
+;; (add-hook 'ruby-mode-hook
+;;           (lambda () (rvm-activate-corresponding-ruby)))
 
 (vendor 'rspec-mode)
 (require 'rspec-mode)

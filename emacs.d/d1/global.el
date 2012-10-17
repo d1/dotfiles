@@ -20,7 +20,6 @@
 (column-number-mode 1)
 (global-font-lock-mode t)
 (show-paren-mode t)
-(global-hl-line-mode t)
 
 ;; Automatically reload files if they change on disk and not in Emacs
 (global-auto-revert-mode t)
