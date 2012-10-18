@@ -17,7 +17,8 @@
 (dolist (ruby-file ruby-file-types)
   (add-to-list 'auto-mode-alist (cons ruby-file 'ruby-mode)))
 
-
+(vendor 'ruby-end)
+(require 'ruby-end)
 
 (vendor 'rinari)
 (require 'rinari)

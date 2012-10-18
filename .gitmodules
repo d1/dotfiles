@@ -22,3 +22,6 @@
 [submodule "emacs.d/vendor/markdown-mode"]
 	path = emacs.d/vendor/markdown-mode
 	url = http://jblevins.org/git/markdown-mode.git
+[submodule "emacs.d/vendor/ruby-end"]
+	path = emacs.d/vendor/ruby-end
+	url = https://github.com/rejeep/ruby-end.git
