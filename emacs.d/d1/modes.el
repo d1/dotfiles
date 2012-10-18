@@ -5,6 +5,10 @@
 (vendor 'textmate)
 (textmate-mode)
 
+(vendor 'smex)
+(require 'smex)
+(smex-initialize)
+
 (vendor 'magit)
 (require 'magit)
 
