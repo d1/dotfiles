@@ -5,6 +5,10 @@
 (vendor 'textmate)
 (textmate-mode)
 
+(vendor 'smex)
+(require 'smex)
+(smex-initialize)
+
 (vendor 'magit)
 (require 'magit)
 
@@ -18,3 +22,14 @@
 (require 'feature-mode)
 (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 
+(vendor 'markdown-mode)
+(eval-after-load "markdown-mode"
+  '(progn
+     (require 'longlines)
+     (progn
+       (add-hook 'markdown-mode-hook 'longlines-mode))))
+
+(autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.page$" . markdown-mode))
