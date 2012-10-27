@@ -56,9 +56,10 @@
 (set-face-attribute 'default (selected-frame) :family "Inconsolata")
 
 ;; Better spellcheck
-(setq ispell-program-name "aspell"
+(setq ispell-program-name "/usr/local/bin/aspell"
       ispell-list-command "list"
       ispell-extra-args '("--sug-mode=ultra"))
+(setq flyspell-issue-welcome-flag nil)
 
 ;; Make completion buffers disappear after 20 seconds.
 ;; (add-hook 'completion-setup-hook
