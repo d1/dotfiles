@@ -30,6 +30,7 @@
 
 (vendor 'rspec-mode)
 (require 'rspec-mode)
+(setq rspec-use-rake-flag nil)
 
 (vendor 'pry)
 (require 'pry)
