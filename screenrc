@@ -1,7 +1,10 @@
 startup_message off
 
-# Set the escape key to 'b' instead of 'a'
-escape ^bb
+# Set the escape key to 'v' instead of 'a'
+escape ^vv
+
+# Use a login shell
+shell -${SHELL}
 
 # Setup status string
 caption string "%?%F%{= Bk}%? %C%A %D %d-%m-%Y %{= kB} %t%= %?%F%{= Bk}%:%{= wk}%? %n "
@@ -26,4 +29,4 @@ screen 1
 # screen 2
 
 # Set scrollback buffer size
-defscrollback 1024
+defscrollback 2048
