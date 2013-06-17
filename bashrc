@@ -1,4 +1,3 @@
-
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
@@ -13,7 +12,7 @@ function gemdir {
 }
 
 GIT_PS1_SHOWDIRTYSTATE='true'
-source ~/.dotfiles/git-prompt.sh
+source ~/.dotfiles/bin/git-prompt.sh
 
 ##################################################
 # Fancy PWD display function
@@ -70,6 +69,11 @@ CYGWIN_BASH_CONFIG="${HOME}/.config-cygwin/bashrc-cygwin"
 
 
 ## Setup Paths
+
+# Set PATH so it includes dotfiles bin if it exists
+if [ -d "${HOME}/.dotfiles/bin" ]; then
+  PATH="${HOME}/.dotfiles/bin:${PATH}"
+fi
 
 # Set PATH so it includes private bin if it exists
 if [ -d "${HOME}/bin" ]; then

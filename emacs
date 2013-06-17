@@ -2,5 +2,8 @@
 ;;(setq debug-on-error t)
 
 ;; Just enough to load the real config
-(add-to-list 'load-path "~/.emacs.d")
+(if (< emacs-major-version 24)
+    (add-to-list 'load-path "~/.emacs.d")
+  (add-to-list 'load-path "~/.emacs24.d"))
+
 (load "d1")
