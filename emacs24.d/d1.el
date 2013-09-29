@@ -7,7 +7,7 @@
 
 (load "d1/global")
 (load "d1/packages")
+(load "d1/theme")
 (load "d1/functions")
 (load "d1/bindings")
-;;(load "d1/theme")
-;;(load "d1/modes")
+(load "d1/modes")
