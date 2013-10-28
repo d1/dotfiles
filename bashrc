@@ -1,16 +1,6 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-function gemdir {
-    if [[ -z "$1" ]] ; then
-	echo "gemdir expects a parameter, which should be a valid RVM Ruby selector"
-    else
-	rvm "$1"
-	cd $(rvm gemdir)
-	pwd
-    fi
-}
-
 GIT_PS1_SHOWDIRTYSTATE='true'
 source ~/.dotfiles/bin/git-prompt.sh
 
@@ -89,6 +79,3 @@ fi
 if [ -d "${HOME}/info" ]; then
   INFOPATH="${HOME}/info:${INFOPATH}"
 fi
-
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
