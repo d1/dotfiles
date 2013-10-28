@@ -1,0 +1,36 @@
+#!/bin/bash
+app=$(basename "$0")
+
+
+function print_usage {
+   echo "\
+Usage: $app [dir] [port]
+       $app [options]
+
+    Serve a filesystem directory via HTTP.
+
+Arguments:
+    dir   Dirctory to serve (Default: .)
+    port  Port to serve on  (Default: 5000)
+
+Options:
+    -h  Show this message
+"
+  exit 0
+}
+
+
+if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]; then
+    print_usage
+fi
+
+dir=${1:-'.'}
+port=${2:-'5000'}
+
+
+if [[ -d "$dir" ]]; then
+    ruby -run -e httpd $dir -p $port
+else
+    echo "$dir is not a directory"
+    print_usage
+fi
