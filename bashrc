@@ -42,6 +42,8 @@ EDITOR="emacs"
 alias ls='ls -aF'
 alias df='df -h'
 alias du='du -h'
+alias more='less -FXRS'
+alias less='less -FXRS'
 
 alias ducks='du -cks * | sort -rn | head -11'
 alias be='bundle exec'
