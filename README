@@ -7,13 +7,7 @@ linux
 
 * To install:
 ** Clone repo
-** Setup submodules
-$ cd <repo>
-$ git submodule update --init
-$ cd emacs.d/vendor/rinari # Gotta be a better way
-$ git submodule update --init
 ** Create symlink in $HOME pointing to the repo
 $ ln -s path/to/repo $HOME/.dotfiles
 ** Create symlinks for configs relative to the new symlink
 $ ln -s $HOME/bashrc .bashrc
-

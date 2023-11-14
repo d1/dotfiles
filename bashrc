@@ -1,19 +1,8 @@
-
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-function gemdir {
-    if [[ -z "$1" ]] ; then
-	echo "gemdir expects a parameter, which should be a valid RVM Ruby selector"
-    else
-	rvm "$1"
-	cd $(rvm gemdir)
-	pwd
-    fi
-}
-
 GIT_PS1_SHOWDIRTYSTATE='true'
-source ~/.dotfiles/git-prompt.sh
+source ~/.dotfiles/bin/git-prompt.sh
 
 ##################################################
 # Fancy PWD display function
@@ -53,6 +42,8 @@ EDITOR="emacs"
 alias ls='ls -aF'
 alias df='df -h'
 alias du='du -h'
+alias more='less -FXRS'
+alias less='less -FXRS'
 
 alias ducks='du -cks * | sort -rn | head -11'
 alias be='bundle exec'
@@ -71,6 +62,11 @@ CYGWIN_BASH_CONFIG="${HOME}/.config-cygwin/bashrc-cygwin"
 
 ## Setup Paths
 
+# Set PATH so it includes dotfiles bin if it exists
+if [ -d "${HOME}/.dotfiles/bin" ]; then
+  PATH="${HOME}/.dotfiles/bin:${PATH}"
+fi
+
 # Set PATH so it includes private bin if it exists
 if [ -d "${HOME}/bin" ]; then
   PATH="${HOME}/bin:${PATH}"
@@ -86,5 +82,6 @@ if [ -d "${HOME}/info" ]; then
   INFOPATH="${HOME}/info:${INFOPATH}"
 fi
 
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# asdf
+. "$(brew --prefix asdf)/libexec/asdf.sh"
+. "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"

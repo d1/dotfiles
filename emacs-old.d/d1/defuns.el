@@ -47,9 +47,9 @@
 ;; https://github.com/defunkt/emacs/blob/master/defunkt/defuns.el
 (defun vendor (library)
   (let* ((file (symbol-name library))
-         (normal (concat "~/.emacs.d/vendor/" file))
+         (normal (concat "~/.emacs-old.d/vendor/" file))
          (suffix (concat normal ".el"))
-         (d1 (concat "~/.emacs.d/d1/" file)))
+         (d1 (concat "~/.emacs-old.d/d1/" file)))
     (cond
      ((file-directory-p normal) (add-to-list 'load-path normal) (require library))
      ((file-directory-p suffix) (add-to-list 'load-path suffix) (require library))
@@ -60,7 +60,7 @@
 
 (defun edit-config ()
   (interactive)
-  (find-file "~/.emacs.d/d1.el"))
+  (find-file "~/.emacs-old.d/d1.el"))
 
 (defun reload-config ()
   (interactive)
