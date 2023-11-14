@@ -42,9 +42,25 @@
     (shrink-window border-move-amount)))
 
 
+;; For loading libraries from the vendor directory
+;; Forked from:
+;; https://github.com/defunkt/emacs/blob/master/defunkt/defuns.el
+(defun vendor (library)
+  (let* ((file (symbol-name library))
+         (normal (concat "~/.emacs-old.d/vendor/" file))
+         (suffix (concat normal ".el"))
+         (d1 (concat "~/.emacs-old.d/d1/" file)))
+    (cond
+     ((file-directory-p normal) (add-to-list 'load-path normal) (require library))
+     ((file-directory-p suffix) (add-to-list 'load-path suffix) (require library))
+     ((file-exists-p suffix) (require library)))
+    (when (file-exists-p (concat d1 ".el"))
+      (load d1))))
+
+
 (defun edit-config ()
   (interactive)
-  (find-file (expand-file-name "d1.el" user-emacs-directory)))
+  (find-file "~/.emacs-old.d/d1.el"))
 
 (defun reload-config ()
   (interactive)

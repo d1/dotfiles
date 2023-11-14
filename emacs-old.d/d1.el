@@ -1,6 +1,6 @@
-(add-to-list 'load-path "~/.emacs.d/vendor")
+(add-to-list 'load-path "~/.emacs-old.d/vendor")
 
-(setq custom-file "~/.emacs.d/d1/custom.el")
+(setq custom-file "~/.emacs-old.d/d1/custom.el")
 (load custom-file 'noerror)
 
 (load "d1/global")

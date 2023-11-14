@@ -1,5 +1,21 @@
 ;; Global settings
 
+;; Silence elisp async compiler warnings
+;;(setq comp-async-report-warnings-errors nil)
+
+;; Reduce frequency of garbage collections to improve startup time
+(setq gc-cons-threshold (* 50 1000 1000))
+
+;; Profile emacs startup
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "*** Emacs loaded in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
+
+
 ;; Hide all the chrome
 (setq inhibit-startup-message t)
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -13,11 +29,24 @@
 
 (setq user-full-name "Dave Strock")
 ;;(setq user-mail-address "dave.strock@gmail.com")
-(setq-default cursor-type 'bar)
-(mouse-wheel-mode t)
-(line-number-mode 1)
-(global-linum-mode 1)
-(column-number-mode 1)
+
+(setq cursor-type 'bar)
+;;(mouse-wheel-mode t)
+
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; One line at a time
+(setq mouse-wheel-progressive-speed nil) ;; Don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; Scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
+;;(setq use-dialog-box nil)
+
+(column-number-mode)
+
+;; Enable line numbers for some modes
+(dolist (mode '(text-mode-hook
+                prog-mode-hook
+                conf-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 1))))
+
 (global-font-lock-mode t)
 (show-paren-mode t)
 

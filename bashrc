@@ -81,3 +81,7 @@ fi
 if [ -d "${HOME}/info" ]; then
   INFOPATH="${HOME}/info:${INFOPATH}"
 fi
+
+# asdf
+. "$(brew --prefix asdf)/libexec/asdf.sh"
+. "$(brew --prefix asdf)/etc/bash_completion.d/asdf.bash"

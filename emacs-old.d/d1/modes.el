@@ -14,7 +14,7 @@
 
 (vendor 'yasnippet)
 (require 'yasnippet)
-(setq yas/snippet-dirs '("~/.emacs.d/vendor/yasnippet/snippets" "~/.emacs.d/d1/snippets"))
+(setq yas/snippet-dirs '("~/.emacs-old.d/vendor/yasnippet/snippets" "~/.emacs-old.d/d1/snippets"))
 (yas/global-mode 1)
 
 ;; Cucumber
